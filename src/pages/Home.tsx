@@ -12,16 +12,27 @@ import MenuCard from "../components/MenuCard";
 export default function Home() {
   return (
     <main className="home">
+
       <div className="home-container">
-        <h1 className="title">Budaya Lokal</h1>
 
-        <h2 className="subtitle">Jawa dan Madura</h2>
+        <div className="hero-title">
 
-        <p className="description">
-          Belajar • Bermain • Mengenal Budaya Nusantara
-        </p>
+          <h1 className="title">
+            Budaya Lokal
+          </h1>
+
+          <h2 className="subtitle">
+            Jawa dan Madura
+          </h2>
+
+          <p className="description">
+            Belajar • Bermain • Mengenal Budaya Nusantara
+          </p>
+
+        </div>
 
         <div className="menu-grid">
+
           <MenuCard
             title="Materi"
             to="/materi"
@@ -30,8 +41,8 @@ export default function Home() {
           />
 
           <MenuCard
-            title="Kuis"
-            to="/quiz"
+            title="Puzzle"
+            to="/puzzle"
             color="card red"
             icon={<FaGamepad className="icon" />}
           />
@@ -49,8 +60,11 @@ export default function Home() {
             color="card blue"
             icon={<FaUser className="icon" />}
           />
+
         </div>
+
       </div>
+
     </main>
   );
 }

@@ -4,7 +4,7 @@ import Layout from "./layouts/Layout";
 
 import Home from "./pages/Home";
 import Materi from "./pages/Materi";
-import Quiz from "./pages/Quiz";
+import Puzzle from "./pages/Puzzle";
 import Guide from "./pages/Guide";
 import Profile from "./pages/Profile";
 
@@ -20,7 +20,7 @@ export default function App() {
           <Route path="/materi" element={<Materi />} />
           <Route path="/materi/:id" element={<MateriDetail />} />
 
-          <Route path="/quiz" element={<Quiz />} />
+          <Route path="/puzzle" element={<Puzzle />} />
 
           <Route path="/guide" element={<Guide />} />
 
