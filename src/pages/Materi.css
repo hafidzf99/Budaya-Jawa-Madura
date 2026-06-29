@@ -1,0 +1,78 @@
+.materi{
+
+min-height:100vh;
+
+padding:50px;
+
+background:#F8F2E7;
+
+}
+
+.material-card{
+
+display:flex;
+
+align-items:center;
+
+padding:20px;
+
+margin-bottom:18px;
+
+background:white;
+
+border-radius:20px;
+
+text-decoration:none;
+
+color:#333;
+
+box-shadow:0 10px 20px rgba(0,0,0,.1);
+
+transition:.3s;
+
+}
+
+.material-card:hover{
+
+transform:translateX(10px);
+
+}
+
+
+.material-text{
+
+flex:1;
+
+}
+
+.material-text h3{
+
+margin:0;
+
+font-size:28px;
+
+}
+
+.material-text p{
+
+margin-top:5px;
+
+color:#666;
+
+}
+
+.material-arrow{
+
+font-size:30px;
+
+}
+.material-image{
+    width:90px;
+    height:90px;
+    object-fit:contain;
+    background:white;
+    border-radius:18px;
+    padding:8px;
+    margin-right:20px;
+    flex-shrink:0;
+}
