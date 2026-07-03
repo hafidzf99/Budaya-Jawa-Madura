@@ -4,8 +4,6 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
 
-  base: "/budaya-jawa-madura/",
-
   plugins: [
 
     react(),
