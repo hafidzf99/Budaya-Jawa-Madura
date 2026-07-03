@@ -28,29 +28,37 @@ export default function Puzzle() {
 
   }
 
+  const progress =
+    ((current + 1) / puzzleData.length) * 100;
+
   if (gameFinished) {
 
     return (
 
       <main className="puzzle-page">
 
-        <div className="puzzle-box">
+        <div className="finish-card">
 
-          <h1>🎉 Selamat 🎉</h1>
+          <div className="finish-emoji">
+            🏆
+          </div>
 
-          <h2>Semua Puzzle Berhasil Disusun</h2>
+          <h1>
+            Selamat!
+          </h1>
 
-          <p
-            style={{
-              marginTop:20,
-              marginBottom:25,
-            }}
-          >
-            Terima kasih sudah bermain.
+          <h2>
+            Semua Puzzle Berhasil Disusun
+          </h2>
+
+          <p>
+
+            Kamu berhasil menyelesaikan seluruh permainan.
+
           </p>
 
           <button
-            className="start-btn"
+            className="finish-btn"
             onClick={() => navigate("/")}
           >
             🏠 Kembali ke Home
@@ -70,31 +78,61 @@ export default function Puzzle() {
 
       <div className="puzzle-box">
 
-        <button
-          className="home-btn"
-          onClick={() => navigate("/")}
-        >
-          🏠 Home
-        </button>
+        <div className="top-bar">
 
-        <h1>Puzzle Budaya Jawa & Madura</h1>
+          <button
+            className="home-btn"
+            onClick={() => navigate("/")}
+          >
+            🏠 Home
+          </button>
 
-        <div
-          style={{
-            color:"#2E7D32",
-            fontWeight:"bold",
-            marginBottom:10,
-            fontSize:20,
-          }}
-        >
-          Puzzle {current + 1} / {puzzleData.length}
+          <div className="score-box">
+
+            ⭐ {current + 1}/{puzzleData.length}
+
+          </div>
+
         </div>
 
-        <h2>
+        <div className="title-area">
+
+          <div className="game-title">
+
+            🧩 Puzzle Budaya
+
+          </div>
+
+          <div className="game-subtitle">
+
+            Jawa & Madura
+
+          </div>
+
+        </div>
+
+        <div className="progress">
+
+          <div
+            className="progress-fill"
+            style={{
+              width: `${progress}%`,
+            }}
+          />
+
+        </div>
+
+        <div className="level-text">
+
+          Level {current + 1} dari {puzzleData.length}
+
+        </div>
+
+        <div className="object-title">
 
           {puzzleData[current].title}
 
-        </h2>
+        </div>
 
         <PuzzleBoard
           image={puzzleData[current].image}

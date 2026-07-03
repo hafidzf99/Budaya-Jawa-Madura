@@ -6,6 +6,10 @@ import {
   playPop,
 } from "../utils/audio";
 
+import {
+  startBGM,
+} from "../utils/bgm";
+
 type MenuCardProps = {
   title: string;
   color: string;
@@ -14,15 +18,10 @@ type MenuCardProps = {
 };
 
 export default function MenuCard({
-
   title,
-
   color,
-
   icon,
-
   to,
-
 }: MenuCardProps) {
 
   const navigate = useNavigate();
@@ -31,21 +30,24 @@ export default function MenuCard({
 
     playPop();
 
+    startBGM();
+
     setTimeout(() => {
 
       navigate(to);
 
-    },120);
+    },200);
 
   }
 
   return (
 
     <button
-
       className={color}
 
       onMouseEnter={playHover}
+
+      onPointerEnter={playHover}
 
       onFocus={playHover}
 

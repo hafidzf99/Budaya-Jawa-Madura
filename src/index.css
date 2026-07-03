@@ -3,3 +3,109 @@
 body {
   margin: 0;
 }
+.layout{
+
+    min-height:100vh;
+
+}
+
+.volume-panel{
+
+    position:fixed;
+
+    top:18px;
+
+    right:18px;
+
+    display:flex;
+
+    gap:10px;
+
+    z-index:99999;
+
+}
+
+.volume-btn{
+
+    width:56px;
+
+    height:56px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:white;
+
+    color:#444;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:
+        transform .12s,
+        box-shadow .12s;
+
+    box-shadow:
+        0 8px 0 #d7d7d7,
+        0 12px 20px rgba(0,0,0,.18);
+
+}
+
+.volume-btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.volume-btn:active{
+
+    transform:translateY(5px);
+
+    box-shadow:
+        0 2px 0 #d7d7d7,
+        0 5px 10px rgba(0,0,0,.18);
+
+}
+
+.volume-btn{
+
+    width:52px;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:white;
+
+    color:#444;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.15s;
+
+    box-shadow:
+        0 8px 18px rgba(0,0,0,.18);
+
+}
+
+.volume-btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.volume-btn:active{
+
+    transform:
+        translateY(4px)
+        scale(.95);
+
+}

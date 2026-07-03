@@ -1,73 +1,141 @@
 import "./Materi.css";
-import { Link } from "react-router-dom";
-import MaterialCard from "../components/MaterialCard";
 
-import aksara from "../assets/icons/aksara.png";
-import pakaian from "../assets/icons/pakaian.png";
-import musik from "../assets/icons/musik.png";
-import wayang from "../assets/icons/wayang.png";
-import makanan from "../assets/icons/makanan.png";
+import { useNavigate } from "react-router-dom";
+import { FaArrowLeft, FaHome } from "react-icons/fa";
+
+import joglo from "../assets/images/background/rumah-adat-joglo.png";
+import rumahMadura from "../assets/images/background/rumah-adat-madura.png";
 
 export default function Materi() {
-  return (
-    <main className="materi">
-      <Link
-        to="/"
-        style={{
-          textDecoration: "none",
-          color: "#5D2E0C",
-          fontWeight: "bold",
-          fontSize: "20px",
-        }}
-      >
-        ← Kembali
-      </Link>
 
-      <h1
-        style={{
-          fontSize: "48px",
-          color: "#5D2E0C",
-          marginTop: "20px",
-          marginBottom: "40px",
-        }}
-      >
-        📚 Materi Budaya Jawa & Madura
-      </h1>
+    const navigate = useNavigate();
 
-      <MaterialCard
-        image={aksara}
-        title="Aksara Jawa"
-        desc="Belajar huruf Hanacaraka"
-        to="/materi/aksara"
-      />
+    return (
 
-      <MaterialCard
-        image={pakaian}
-        title="Pakaian Adat"
-        desc="Pakaian adat Jawa dan Madura"
-        to="/materi/pakaian"
-      />
+        <main className="materi-page">
 
-      <MaterialCard
-        image={musik}
-        title="Alat Musik"
-        desc="Belajar alat musik tradisional"
-        to="/materi/musik"
-      />
+            <div className="materi-container">
 
-      <MaterialCard
-        image={wayang}
-        title="Wayang"
-        desc="Tokoh dan cerita wayang"
-        to="/materi/wayang"
-      />
+                <div className="materi-header">
 
-      <MaterialCard
-        image={makanan}
-        title="Makanan Khas"
-        desc="Kuliner Jawa dan Madura"
-        to="/materi/makanan"
-      />
-    </main>
-  );
+                    <button
+                        className="circle-btn"
+                        onClick={() => navigate("/")}
+                    >
+                        <FaArrowLeft/>
+                    </button>
+
+                    <div className="game-title">
+
+    <span>
+
+        📚 PILIH BUDAYA
+
+    </span>
+
+</div>
+
+                    <button
+                        className="circle-btn"
+                        onClick={() => navigate("/")}
+                    >
+                        <FaHome/>
+                    </button>
+
+                </div>
+
+                <p className="materi-subtitle">
+
+                    Pilih budaya yang ingin dipelajari
+
+                </p>
+
+                <div className="culture-grid">
+
+                    {/* =================== JAWA =================== */}
+
+                    <div
+                        className="culture-card"
+                        onClick={()=>navigate("/materi/jawa")}
+                    >
+
+                        <div className="culture-title jawa">
+
+                            BUDAYA JAWA
+
+                        </div>
+
+                        <img
+                            className="culture-image"
+                            src={joglo}
+                            alt=""
+                        />
+
+                        <div className="culture-list">
+
+                            <div>🏠 Rumah Adat</div>
+
+                            <div>👘 Pakaian Adat</div>
+
+                            <div>🍛 Gudeg</div>
+
+                            <div>🎭 Wayang</div>
+
+                        </div>
+
+                        <div className="culture-button">
+
+                            ▶ MULAI BELAJAR
+
+                        </div>
+
+                    </div>
+
+                    {/* =================== MADURA =================== */}
+
+                    <div
+                        className="culture-card"
+                        onClick={()=>navigate("/materi/madura")}
+                    >
+
+                        <div className="culture-title madura">
+
+                            BUDAYA MADURA
+
+                        </div>
+
+                        <img
+                            className="culture-image"
+                            src={rumahMadura}
+                            alt=""
+                        />
+
+                        <div className="culture-list">
+
+                            <div>🏠 Rumah Adat</div>
+
+                            <div>👘 Pesa'an</div>
+
+                            <div>🍢 Sate Madura</div>
+
+                            <div>🐂 Karapan Sapi</div>
+
+                        </div>
+
+                        <div className="culture-button">
+
+                            ▶ MULAI BELAJAR
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    );
+
 }

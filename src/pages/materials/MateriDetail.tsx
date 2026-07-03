@@ -1,96 +1,112 @@
-import { Link, useParams } from "react-router-dom";
-import { materials } from "../../data/materials";
+import { useNavigate, useParams } from "react-router-dom";
+
+import { FaArrowLeft, FaHome } from "react-icons/fa";
+
+import "../Materi.css";
+
+import { materiData } from "../../data/materiData";
 
 export default function MateriDetail() {
-  const { id } = useParams();
 
-  const materi = materials[id as keyof typeof materials];
+    const navigate = useNavigate();
 
-  if (!materi) {
-    return (
-      <main style={{ padding: 50 }}>
-        <h1>Materi tidak ditemukan</h1>
-      </main>
+    const { id } = useParams();
+
+    const materi = materiData.find(
+        item => item.id === id
     );
-  }
 
-  return (
-    <main
-      style={{
-        minHeight: "100vh",
-        background: "#F8F2E7",
-        padding: "40px",
-      }}
-    >
-      <Link
-        to="/materi"
-        style={{
-          textDecoration: "none",
-          color: "#5D2E0C",
-          fontWeight: "bold",
-          fontSize: "18px",
-        }}
-      >
-        ← Kembali
-      </Link>
+    if (!materi) {
 
-      <div
-        style={{
-          maxWidth: "900px",
-          margin: "30px auto",
-          background: "#fff",
-          borderRadius: "25px",
-          padding: "40px",
-          boxShadow: "0 15px 35px rgba(0,0,0,.15)",
-        }}
-      >
-        <img
-          src={materi.image}
-          alt={materi.title}
-          style={{
-            width: "220px",
-            display: "block",
-            margin: "auto",
-          }}
-        />
+        return (
 
-        <h1
-          style={{
-            textAlign: "center",
-            marginTop: "25px",
-            color: "#5D2E0C",
-          }}
-        >
-          {materi.title}
-        </h1>
+            <main className="materi-page">
 
-        <p
-          style={{
-            marginTop: "25px",
-            fontSize: "20px",
-            lineHeight: "1.8",
-            textAlign: "justify",
-          }}
-        >
-          {materi.description}
-        </p>
+                <div className="materi-container">
 
-        <button
-          style={{
-            marginTop: "40px",
-            width: "100%",
-            padding: "18px",
-            border: "none",
-            borderRadius: "15px",
-            background: "#14883E",
-            color: "white",
-            fontSize: "20px",
-            cursor: "pointer",
-          }}
-        >
-          ▶ Mulai Latihan
-        </button>
-      </div>
-    </main>
-  );
+                    <h1>
+
+                        Materi tidak ditemukan
+
+                    </h1>
+
+                    <button
+                        className="circle-btn"
+                        onClick={() => navigate("/materi")}
+                    >
+
+                        <FaArrowLeft/>
+
+                    </button>
+
+                </div>
+
+            </main>
+
+        );
+
+    }
+
+    return (
+
+        <main className="materi-page">
+
+            <div className="detail-container">
+
+                <div className="materi-header">
+
+                    <button
+                        className="circle-btn"
+                        onClick={() => navigate(-1)}
+                    >
+
+                        <FaArrowLeft/>
+
+                    </button>
+
+                    <h1>
+
+                        {materi.subtitle}
+
+                    </h1>
+
+                    <button
+                        className="circle-btn"
+                        onClick={() => navigate("/")}
+                    >
+
+                        <FaHome/>
+
+                    </button>
+
+                </div>
+
+                <img
+                    className="detail-image"
+                    src={materi.image}
+                    alt={materi.subtitle}
+                />
+
+                <div className="detail-content">
+
+                    <h2>
+
+                        {materi.title}
+
+                    </h2>
+
+                    <p>
+
+                        {materi.description}
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    );
+
 }

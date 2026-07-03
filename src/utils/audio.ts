@@ -8,6 +8,12 @@ function getContext() {
 
   }
 
+  if (ctx.state === "suspended") {
+
+    ctx.resume();
+
+  }
+
   return ctx;
 
 }
@@ -60,10 +66,10 @@ function play(
 export function playHover() {
 
   play(
-    900,
-    1100,
-    0.05,
-    0.04
+    1200,
+    1000,
+    0.03,
+    0.03
   );
 
 }
@@ -72,9 +78,9 @@ export function playPop() {
 
   play(
     650,
-    950,
-    0.12,
-    0.09
+    900,
+    0.10,
+    0.08
   );
 
 }
